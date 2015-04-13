@@ -1,6 +1,2 @@
 RewriteEngine On
-<<<<<<< HEAD
 RewriteRule ^(.*)$ Public/$1 [L]
-=======
-RewriteRule ^(.*)$ Public/$1 [L]
->>>>>>> efff1e3d7d752286114a0d83364c531fd3785412

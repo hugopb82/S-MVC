@@ -1,9 +1,13 @@
 <?php
 	return array(
 		'DB' => array(
-			'DB_HOST' => 'localhost',
-			'DB_USER' => 'root',
-			'DB_PASS' => '',
-			'DB_TYPE' => 'mysql'
+			'HOST' => 'localhost',
+			'USER' => 'root',
+			'PASS' => '',
+			'TYPE' => 'mysql',
+			'NAME' => 'db_name',
+		),
+		'SITE' => array(
+			'TITLE'   => 'S MVC',
 		)
 	);
