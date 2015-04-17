@@ -23,6 +23,9 @@
 		 * Load autoloaders...
 		 */
 		public function autoload(){
+			// Composer power !
+			require(ROOT . 'vendor/autoload.php');
+
 			require(ROOT . 'App/Autoloader.php');
 			\App\Autoloader::register();
 			require(ROOT . 'Core/Autoloader.php');

@@ -1,0 +1,14 @@
+{
+    "name": "hugopb82/s-mvc",
+    "description": "A simple and customizable MVC php framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hugo Pauget",
+            "email": "hugopb82@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+    }
+}
