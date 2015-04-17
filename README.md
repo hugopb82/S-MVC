@@ -122,9 +122,9 @@ Just modify the *default.php* file in *App/View/Template* and make your own temp
 ```
 
 ##### Adding librairies :
-**With composer :**
+######With composer :
 Edit the *composer.json* file adding your dependecies, the autoloader is loaded in *App/app.php* file so you can directly use the dependencies. Read more about composer at : https://getcomposer.org/
-**Without composer :**
+######Without composer :
 Go in the *Lib/* folder and put all external librairies (like my form class : https://github.com/hugopb82/form).
 **Delete all namespaces in those files and be sure that the filename is the same as the class name.**
 Now you can load the librairy without requiring it, just do: 
