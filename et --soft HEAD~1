@@ -1,0 +1,73 @@
+[33mcommit 99e5e6c74e224518f1d0b3334a53270bbc6d58b0[m
+Merge: 9ee3508 0f33def
+Author: hugopb82 <cedric@lubuntu>
+Date:   Fri Apr 17 14:27:10 2015 +0200
+
+    Merge branch 'master' of https://github.com/hugopb82/S-MVC
+
+[33mcommit 9ee3508619894738b12f0464e9347e13ada1855f[m
+Author: hugopb82 <cedric@lubuntu>
+Date:   Fri Apr 17 14:20:35 2015 +0200
+
+    Added support of composer
+
+[33mcommit 0f33def1f1abd22970f211f047f9cfede54b3d0c[m
+Author: hugopb82 <hugopb@neuf.fr>
+Date:   Wed Apr 15 19:50:41 2015 +0200
+
+    Update README.md
+
+[33mcommit 819f22142e29821bb898d2d2bc67e5836f49df21[m
+Author: hugopb82 <hugopb@neuf.fr>
+Date:   Wed Apr 15 18:57:07 2015 +0200
+
+    Update README.md
+
+[33mcommit 9dcba16067fd14f8f473bcd5c7f902ca858c77c1[m
+Author: hugopb82 <hugopb@neuf.fr>
+Date:   Wed Apr 15 17:15:26 2015 +0200
+
+    Update README.md
+
+[33mcommit f3187350e33317eefa477a2b815dbf93684ad27f[m
+Author: hugopb82 <hugopb@neuf.fr>
+Date:   Wed Apr 15 17:07:39 2015 +0200
+
+    Update README.md
+
+[33mcommit 6b092c479eb1307a3e8171cfec337d147405ec93[m
+Author: hugopb82 <cedric@lubuntu>
+Date:   Wed Apr 15 16:57:35 2015 +0200
+
+    New changes
+
+[33mcommit 98835b845e1ec5718b62b6d3cd56a8f046a223e4[m
+Author: hugopb82 <cedric@lubuntu>
+Date:   Mon Apr 13 15:31:43 2015 +0200
+
+    Some modifications
+
+[33mcommit efd23bd733d3ebfebdb36fb33096f37caf855153[m
+Author: hugopb82 <cedric@lubuntu>
+Date:   Mon Apr 13 14:30:53 2015 +0200
+
+    Update
+
+[33mcommit 97ba180a28ec2326be23e596b841302ff154c864[m
+Merge: 47f1874 7f912cd
+Author: hugopb82 <cedric@lubuntu>
+Date:   Sun Apr 12 20:09:11 2015 +0200
+
+    Merge branch 'master' of https://github.com/hugopb82/S-MVC
+
+[33mcommit 47f1874e7a1bb86e671fdab3ef2408a6791fb5e7[m
+Author: hugopb82 <cedric@lubuntu>
+Date:   Sun Apr 12 20:08:43 2015 +0200
+
+    First commit
+
+[33mcommit 7f912cd77e5b22bafdeb8e61ca2ebd6ed95afff0[m
+Author: hugopb82 <hugopb@neuf.fr>
+Date:   Sun Apr 12 20:07:39 2015 +0200
+
+    Initial commit
