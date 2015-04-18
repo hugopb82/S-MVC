@@ -4,8 +4,18 @@
 		private static $_instance = null;
 		private $_settings = [];
 
+
+		/**
+		 * Load Config/Config.ini|php file
+		 */
 		public function __construct(){
-			$this->_settings = require(ROOT . 'Config/Config.php');
+			if(file_exists(ROOT . 'Config/Config.ini')){
+				$this->_settings = parse_ini_file(ROOT . 'Config/Config.ini', true);
+			}elseif(file_exists(ROOT . 'Config/Config.php')){
+				$this->_settings = require(ROOT . 'Config/Config.php');
+			}else{
+				die("No config file founded in Config directory.");
+			}
 		}
 
 		/**

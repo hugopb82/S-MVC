@@ -139,6 +139,9 @@ E.g. with my form class in a view file, I put *form.php* in *Lib/* :
 ```
 
 ##### Getting config params :
+######With a ini file:
+Go to the *Config/Config.ini* file and modify what you want.
+######With a php array:
 If you go to the *Config/Config.php* file, you'll see a multidimensionnal array.
 For exemple : 
 ```php
@@ -149,6 +152,8 @@ For exemple :
 		)
 	);
 ```
+
+**If an ini file exists it will be load first, so if you want to use an array in php you must delete the .ini file**
 You can get those parameters in any file (Model, View or Controller) using :
 ```php
 Config::get($prefix, $key);
