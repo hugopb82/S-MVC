@@ -1,5 +1,5 @@
 <?php
-	namespace App\Model;
+	namespace App\MVC\Model;
 
 	class postModel{
 

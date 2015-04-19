@@ -1,5 +1,5 @@
 <?php
-	namespace Core;
+	namespace Kernel;
 
 	class Autoloader{
 		
@@ -18,7 +18,7 @@
 			if(strpos($class, __NAMESPACE__ . '\\') === 0 || $class == 'Config'){
 				$class = str_replace( __NAMESPACE__ . '\\', '', $class);
 				$class = str_replace('\\', '/', $class);
-				require_once(ROOT . 'Core/' . $class . '.php');
+				require_once(ROOT . 'Kernel/' . $class . '.php');
 			}
 		}
 		

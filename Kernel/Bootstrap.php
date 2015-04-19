@@ -1,5 +1,5 @@
 <?php
-	namespace Core;
+	namespace Kernel;
 
 	class Bootstrap{
 		
@@ -31,9 +31,9 @@
 			$this->url();
 			$this->request();
 
-			$controller_path = ROOT . 'App/Controller/' . $this->_controller . '.php';
+			$controller_path = ROOT . 'App/MVC/Controller/' . $this->_controller . '.php';
 			if(file_exists($controller_path) && $this->_controller != 'appController'){
-				$controller_name = '\\App\\Controller\\' . $this->_controller;
+				$controller_name = '\\App\\MVC\\Controller\\' . $this->_controller;
 				$controller = new $controller_name();
 				if(method_exists($controller, $this->_method)){
 					call_user_method_array($this->_method, $controller, $this->_params);

@@ -1,5 +1,5 @@
 <?php
-	namespace App\Controller;
+	namespace App\MVC\Controller;
 
 	class postController extends appController{
 

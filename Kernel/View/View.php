@@ -1,9 +1,9 @@
 <?php
-	namespace Core\View;
+	namespace Kernel\View;
 
 	class View{
 		
-		protected $VIEW_PATH = 'App/View/';
+		protected $VIEW_PATH = 'App/MVC/View/';
 		protected $LAYOUT    = 'default';
 
 		/**

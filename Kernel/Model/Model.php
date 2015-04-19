@@ -1,5 +1,5 @@
 <?php
-	namespace Core\Model;
+	namespace Kernel\Model;
 
 	class Model{
 		
@@ -8,7 +8,7 @@
 		 * @param  string $model  model name
 		 */
 		public static function loadModel($model){
-			$model_name = '\\App\\Model\\' . $model . 'Model';
+			$model_name = '\\App\\MVC\\Model\\' . $model . 'Model';
 			return new $model_name();
 		}
 

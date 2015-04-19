@@ -1,7 +1,7 @@
 <?php
-	require(ROOT . 'Core/Bootstrap.php');
+	require(ROOT . 'Kernel/Bootstrap.php');
 
-	use \Core\Bootstrap;
+	use \Kernel\Bootstrap;
 
 	class App extends Bootstrap{
 
@@ -24,14 +24,14 @@
 		 */
 		public function autoload(){
 			// Composer power !
-			require(ROOT . 'vendor/autoload.php');
+			require(ROOT . 'App/vendor/autoload.php');
 
 			require(ROOT . 'App/Autoloader.php');
 			\App\Autoloader::register();
-			require(ROOT . 'Core/Autoloader.php');
-			\Core\Autoloader::register();
-			require(ROOT . 'Lib/Autoloader.php');
-			\Lib\Autoloader::register();
+			require(ROOT . 'Kernel/Autoloader.php');
+			\Kernel\Autoloader::register();
+			require(ROOT . 'App/Lib/Autoloader.php');
+			App\Lib\Autoloader::register();
 		}
 		
 		/**

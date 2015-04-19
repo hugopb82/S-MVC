@@ -1,5 +1,5 @@
 <?php
-	namespace Lib;
+	namespace App\Lib;
 
 	class Autoloader{
 		
@@ -16,8 +16,8 @@
 		 * @param  [string]  $class  name of the class to load
 		 */
 		public static function autoload($class){
-			if(file_exists(ROOT . 'Lib/' . $class . '.php')){
-				require_once(ROOT . 'Lib/' . $class . '.php');
+			if(file_exists(ROOT . 'App/Lib/' . $class . '.php')){
+				require_once(ROOT . 'App/Lib/' . $class . '.php');
 			}
 		}
 		

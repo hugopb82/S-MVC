@@ -9,10 +9,10 @@
 		 * Load Config/Config.ini|php file
 		 */
 		public function __construct(){
-			if(file_exists(ROOT . 'Config/Config.ini')){
-				$this->_settings = parse_ini_file(ROOT . 'Config/Config.ini', true);
-			}elseif(file_exists(ROOT . 'Config/Config.php')){
-				$this->_settings = require(ROOT . 'Config/Config.php');
+			if(file_exists(ROOT . 'App/Config/Config.ini')){
+				$this->_settings = parse_ini_file(ROOT . 'App/Config/Config.ini', true);
+			}elseif(file_exists(ROOT . 'App/Config/Config.php')){
+				$this->_settings = require(ROOT . 'App/Config/Config.php');
 			}else{
 				die("No config file founded in Config directory.");
 			}
