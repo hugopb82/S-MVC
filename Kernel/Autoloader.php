@@ -15,7 +15,7 @@
 		 * @param  string  $class  name of the class to load
 		 */
 		public static function autoload($class){
-			if(strpos($class, __NAMESPACE__ . '\\') === 0 || $class == 'Config'){
+			if(strpos($class, __NAMESPACE__ . '\\') === 0 || $class == 'Config' || $class == 'Router'){
 				$class = str_replace( __NAMESPACE__ . '\\', '', $class);
 				$class = str_replace('\\', '/', $class);
 				require_once(ROOT . 'Kernel/' . $class . '.php');

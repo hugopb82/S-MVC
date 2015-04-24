@@ -27,9 +27,15 @@
 			$this->_params = isset($url[2]) ? array_slice($url, 2) : [];
 		}
 
-		public function router(){
-			$this->url();
-			$this->request();
+		public function router($router){
+			if(is_array($router)){
+				$this->_controller = $router['controller'];
+				$this->_method = $router['method'];
+				$this->_params = $router['params'];
+			}else{
+				$this->url();
+				$this->request();
+			}
 
 			$controller_path = ROOT . 'App/MVC/Controller/' . $this->_controller . '.php';
 			if(file_exists($controller_path) && $this->_controller != 'appController'){
@@ -38,10 +44,10 @@
 				if(method_exists($controller, $this->_method)){
 					call_user_method_array($this->_method, $controller, $this->_params);
 				}else{
-					echo 'non;';
+					echo 'Error';
 				}
 			}else{
-				echo 'no';
+				echo 'Error';
 			}
 		}
 

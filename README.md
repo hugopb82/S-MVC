@@ -3,10 +3,36 @@
 ### Usage
 To start a website you only need to create some files in *App/MVC* directory and change config file in *App/Config* directory. You can also put your css, js in *App/Public* directory.
 
-##### URLs :
-URLs are built with this pattern : *yoursite.com/controller/method/param1/param2/param3* ...
+##### URL's and routing:
+######Without router :
+URLs are built with this pattern : *yoursite.com/controller/method/param1/param2/param3...*
+
   
 e.g : *yoursite.com/post/listen/12* will create a *post* controller object and call *listen* method with an argument : *12*
+
+######With router :
+If you want some beautiful URL's you can use the Router :
+Got to *App/Public/index.php* file and add your routes after this line :
+```php
+	require(ROOT . 'Kernel/Router.php');
+```
+To add a route add this code :
+```php
+	Router::method($url, $tocall, $conditions);
+```
+Where
+- method is the server request method (get, put, delete, post or any)
+- $url is the called url you want
+- $tocall is a string like thid : *controller#method()* or a function
+- $conditions is optionnal
+E.g of routes :
+```php
+	Router::get('/', 'index#index()');
+	Router::get('/view/{int:id}', 'post#view(:id)', '$id > 0');
+	Router::any('/example/{all:text}', function($text){
+		echo $text;
+	});
+```
 
 ##### Creating a new page :
 To create a new page go to the *App/MVC/Controller* directory and create a new file called *nameController.php* where *name* is the name of your controller.

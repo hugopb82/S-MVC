@@ -16,7 +16,10 @@
 			$inst->autoload();
 			$inst->session();
 			
-			$inst->router();
+			//$inst->router();
+			$url = isset($_GET['url']) ? '/' . rtrim($_GET['url'], '/') : '/';
+			$inst->router(Router::load($url));
+			die();
 		}
 
 		/**
