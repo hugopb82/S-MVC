@@ -2,6 +2,7 @@
 	require(ROOT . 'Kernel/Bootstrap.php');
 
 	use \Kernel\Bootstrap;
+	use \Kernel\Router;
 
 	class App extends Bootstrap{
 
@@ -16,10 +17,7 @@
 			$inst->autoload();
 			$inst->session();
 			
-			//$inst->router();
-			$url = isset($_GET['url']) ? '/' . rtrim($_GET['url'], '/') : '/';
-			$inst->router(Router::load($url));
-			die();
+			Router::load();
 		}
 
 		/**

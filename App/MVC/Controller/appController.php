@@ -1,7 +1,7 @@
 <?php
 	namespace App\MVC\Controller;
 
-	use \Kernel\Controller\Controller;
+	use \Kernel\Controller;
 
 	class appController extends Controller{
 

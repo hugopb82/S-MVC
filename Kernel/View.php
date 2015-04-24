@@ -1,5 +1,5 @@
 <?php
-	namespace Kernel\View;
+	namespace Kernel;
 
 	class View{
 		

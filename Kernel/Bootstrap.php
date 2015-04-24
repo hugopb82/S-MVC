@@ -42,7 +42,7 @@
 				$controller_name = '\\App\\MVC\\Controller\\' . $this->_controller;
 				$controller = new $controller_name();
 				if(method_exists($controller, $this->_method)){
-					call_user_method_array($this->_method, $controller, $this->_params);
+					call_user_func_array(array($controller, $this->_method) , $this->_params);
 				}else{
 					echo 'Error';
 				}

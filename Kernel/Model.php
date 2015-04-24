@@ -1,5 +1,5 @@
 <?php
-	namespace Kernel\Model;
+	namespace Kernel;
 
 	class Model{
 		

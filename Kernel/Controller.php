@@ -1,8 +1,8 @@
 <?php
-	namespace Kernel\Controller;
+	namespace Kernel;
 
-	use \Kernel\View\View;
-	use \Kernel\Model\Model;
+	use \Kernel\View;
+	use \Kernel\Model;
 
 	class Controller{
 		
