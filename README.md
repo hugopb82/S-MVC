@@ -25,6 +25,7 @@ Where
 - $url is the called url you want
 - $tocall is a string like thid : *controller#method()* or a function
 - $conditions is optionnal
+
 E.g of routes :
 ```php
 	Router::get('/', 'index#index()');
