@@ -6,18 +6,14 @@
 
 	class App extends Bootstrap{
 
-		private static $_instance = null;
+		private $instance = null;
 
 		/**
 		 * Boot the application. Called in the Public/index.php file
 		 */
-		public static function boot(){
-			$inst = self::getInstance();
-
-			$inst->autoload();
-			$inst->session();
-			
-			Router::load();
+		public function boot(){
+			$this->autoload();
+			$this->session();
 		}
 
 		/**
@@ -34,7 +30,7 @@
 			require(ROOT . 'App/Lib/Autoloader.php');
 			App\Lib\Autoloader::register();
 		}
-		
+
 		/**
 		 * Singleton
 		 */
