@@ -6,8 +6,6 @@
 
 	class App extends Bootstrap{
 
-		private $instance = null;
-
 		/**
 		 * Boot the application. Called in the Public/index.php file
 		 */
@@ -29,16 +27,6 @@
 			\Kernel\Autoloader::register();
 			require(ROOT . 'App/Lib/Autoloader.php');
 			App\Lib\Autoloader::register();
-		}
-
-		/**
-		 * Singleton
-		 */
-		private static function getInstance(){
-			if(is_null(self::$_instance)){
-				self::$_instance = new self();
-			}
-			return self::$_instance;
 		}
 
 	}

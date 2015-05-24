@@ -63,6 +63,9 @@
 				return false;
 			}
 			$method = $_SERVER['REQUEST_METHOD'];
+			if(!isset($this->routes[$method])){
+				return false;
+			}
 			foreach($this->routes[$method] as $route){
 				if($route->match($this->url)){
 					$this->routed = true;
