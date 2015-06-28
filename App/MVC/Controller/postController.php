@@ -1,7 +1,9 @@
 <?php
 	namespace App\MVC\Controller;
 
-	class postController extends appController{
+	use \Kernel\Controller;
+
+	class postController extends Controller{
 
 		public function index(){
 			$message = 'called by postController';

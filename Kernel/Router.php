@@ -1,17 +1,21 @@
 <?php
 	namespace Kernel;
 
-  class Router{
+	use \DomDocument;
 
-    private $url;
-    private $routes = array();
-    private $mode = 'default';
-		private $routed = false;
+  	class Router{
 
-    public function __construct($url, $mode = 'default'){
-      $this->url = trim($url, '/');
+		public $mode = 'mixed';
+		public $url;
+
+		private $request;
+		private $routes = array();
+
+		public function __construct(Request $request, $mode = 'default'){
+			$url = $request->url;
+			$this->url = trim($url, '/');
 			$this->mode = $mode;
-    }
+		}
 
 		public function setMode($mode){
 			$this->mode = $mode;
@@ -19,80 +23,68 @@
 
 		public function add($type, $path, $to_call){
 			$route = new Route($path, $to_call);
-      $this->routes[$type][] = $route;
-      return $route;
-    }
+			$this->routes[$type][] = $route;
+			return $route;
+		}
 
-    public function get($path, $to_call){
-      return $this->add('GET', $path, $to_call);
-    }
+		public function get($path, $to_call){
+			return $this->add('GET', $path, $to_call);
+		}
 
-    public function post($path, $to_call){
-      return $this->add('POST', $path, $to_call);
-    }
+		public function post($path, $to_call){
+			return $this->add('POST', $path, $to_call);
+		}
 
-    public function delete($path, $to_call){
-      return $this->add('DELETE', $path, $to_call);
-    }
+		public function delete($path, $to_call){
+			return $this->add('DELETE', $path, $to_call);
+		}
 
-    public function any($path, $to_call){
-      $this->get($path, $to_call);
-      $this->post($path, $to_call);
-      return $this->delete($path, $to_call);
-    }
+		public function any($path, $to_call){
+			$this->get($path, $to_call);
+			$this->post($path, $to_call);
+			$this->delete($path, $to_call);
+			return true;
+		}
 
-    public function load(){
-			switch($this->mode){
-				case 'default':
-					$this->loadUrl();
-					break;
-				case 'mixed':
-					$this->loadDefined();
-					$this->loadUrl();
-					break;
-				case 'defined':
-					$this->loadDefined();
-					break;
-				default:
-					break;
-			}
-    }
-
-		private function loadDefined(){
-			if($this->routed === true){
-				return false;
-			}
+		public function load(){
 			$method = $_SERVER['REQUEST_METHOD'];
-			if(!isset($this->routes[$method])){
-				return false;
-			}
 			foreach($this->routes[$method] as $route){
 				if($route->match($this->url)){
-					$this->routed = true;
 					return $route->call();
 				}
 			}
-		}
+			if($this->mode == "mixed" || $this->mode == "old"){
+				$parts = explode('/', $this->url);
 
-		private function loadUrl(){
-			if($this->routed === true){
+				$controller = isset($parts[0]) ? $parts[0] : 'index';
+				$method = isset($parts[1]) ? $parts[1] : 'index';
+				$args  = isset($parts[2]) ? array_slice($parts, 2) : array();
+
+				$route = new Route($this->url, $controller . '@' . $method);
+				$route->args = $args;
+				return $route;
+			}else{
 				return false;
 			}
-			$url = !empty($this->url) ? explode('/', $this->url) : '';
+		}
 
-			$controller = isset($url[0]) ? $url[0] . 'Controller' : 'indexController';
-			$controller_path = ROOT . 'App/MVC/Controller/' . $controller . '.php';
-			$method = isset($url[1]) ? $url[1] : 'index';
-			$params = isset($url[2]) ? array_slice($url, 2) : array();
+		public function loadXML($path){
+			$dom = new DomDocument();
+			$dom->load($path);
 
-			if(file_exists($controller_path) && $controller != 'appController'){
-				$controller_name = '\\App\\MVC\\Controller\\' . $controller;
-				$controller = new $controller_name();
-				if(method_exists($controller, $method)){
-					$this->routed = true;
-					call_user_func_array(array($controller, $method) , $params);
+			if($dom->schemaValidate(ROOT . 'Kernel/routes.xsd')){
+				$routes = $dom->getElementsByTagName('route');
+
+				foreach($routes as $route){
+					$method = $route->getElementsByTagName('method')->item(0)->nodeValue;
+					$url = $route->getElementsByTagName('url')->item(0)->nodeValue;
+					$action = $route->getElementsByTagName('action')->item(0)->nodeValue;
+					$this->add($method, $url, $action);
 				}
+			}else{
+				die('Your xml file is incorrect');
+				return false;
 			}
 		}
 
-  }
+  	}

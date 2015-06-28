@@ -3,11 +3,15 @@
 
 	class Request{
 
-		public static function getUrl(){
+		public $url;
+
+		/**
+		 * Set the current url in the $url var
+		 */
+		public function __construct(){
 			$uri = $_SERVER['REQUEST_URI'];
-			$dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname(dirname(__FILE__)));
-			$url =  str_replace($dir, '', $uri);
-			return $url;
+			$url =  str_replace(BASE_URL, '', $uri);
+			$this->url = $url;
 		}
 
 	}
