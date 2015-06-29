@@ -12,7 +12,7 @@
 		private $routes = array();
 
 		public function __construct(Request $request, $mode = 'default'){
-			$url = $request->url;
+			$url = $request->getUrl();
 			$this->url = trim($url, '/');
 			$this->mode = $mode;
 		}

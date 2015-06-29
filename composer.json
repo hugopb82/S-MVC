@@ -10,8 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Kernel\\": "../Kernel/",
-            "App\\": ""
+            "Kernel\\": "Kernel/",
+            "App\\": "App/",
+            "App\\Lib\\" : "App/Lib/"
+        },
+        "psr-0": {
+            "Config": "Kernel/"
         }
     },
     "minimum-stability": "alpha",

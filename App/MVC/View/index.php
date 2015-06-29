@@ -1,2 +1,4 @@
 <p>This is the index page</p>
-<?= isset($message) ? $message : '' ?>
+<h2><?= $post['title'] ?></h2>
+<p><?=  $post['content'] ?></p>
+<p><?=  $post['autor'] ?></p>
