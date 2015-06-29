@@ -17,7 +17,7 @@ To start a website you only need to create some files in *App/MVC* directory and
 You can also put your css, js files in *App/Public* directory.
 
 ####Configuration
-- ####Set Config values
+####Set Config values
 
 Once you have installed S-MVC, the first thing to do it's to configure your website.
 **Config files are in the *App/Config* directory.**
@@ -49,7 +49,7 @@ Create a **Config.php** file that return an array like this :
 		)
 	);
 ```
-- ####Get Config values
+####Get Config values
 
 In any file you can use this code :
 ```php
@@ -161,7 +161,7 @@ Then in the *App/Public/index.php* file you can add a route to call this control
 	$app->Router->get('/', 'index@index');
 ```
 
-- #### Passing parameters :
+#### Passing parameters :
 
 In your methods you can specify the parameters you want :
 ```php
@@ -184,7 +184,7 @@ Then in the *App/Public/index.php* file you can add a route to call this control
 ```
 **If you are using the router with old style url's put all your arguments with a default value because user can go to an url without passing parameters in this one!!!**
 
-- #### Rendering a view (with parameters) :
+#### Rendering a view (with parameters) :
 
 Quiet simple!
 
@@ -214,7 +214,7 @@ In your controller :
 	}
 ```
 
-- #### Using models :
+#### Using models :
 
 Models file are in *App/MVC/Model* and must be called with *Model* at the end.
 E.g : *postModel.php*
@@ -271,11 +271,11 @@ Just modify the *default.php* file in *App/MVC/View/Template* and make your own 
 ```
 
 ### Adding librairies :
-- ####With composer :
+####With composer :
 
 Edit the *App/composer.json* file adding your dependecies, the autoloader is loaded in *App/app.php* file so you can directly use the dependencies. Read more about composer at : https://getcomposer.org/
 
-- ####Without composer :
+####Without composer :
 
 Go in the *App/Lib/* folder and put all external librairies (like my form class : https://github.com/hugopb82/form).
 **Delete all namespaces in those files and be sure that the filename is the same as the class name.**
