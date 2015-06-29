@@ -118,7 +118,7 @@ and load it in the *App/Public/index.php* file :
 	$app->boot();
 ```
 By default, if the router doesn't found any route it will try to load old url's style:
-* yoursite.com/controller/method/param1/param2* ...
+*yoursite.com/controller/method/param1/param2* ...
 If the controller doesn't exists an error will appear.
 
 If you don't want this behaviour and load only declared routes tou can change the router mode in the *App/Public/index.php* file:
