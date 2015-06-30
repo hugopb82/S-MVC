@@ -11,9 +11,9 @@
             $info = json_decode($json);
             $this->version = $info->version;
             $this->last_checked = $info->last_checked;
-            $this->check();
-            /*if($this->last_checked == null || time() - $this->last_checked > 604800){
-            }*/
+            if($this->last_checked == null || time() - $this->last_checked > 604800){
+                $this->check();
+            }
         }
 
         public function check(){

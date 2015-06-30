@@ -21,7 +21,6 @@
 			$this->Request = new Request();
 			$this->Router = new Router($this->Request);
 			$this->Updater = new Updater();
-			die();
 		}
 
 		/**
