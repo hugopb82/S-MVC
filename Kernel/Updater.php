@@ -12,6 +12,8 @@
             $this->version = $info->version;
             $this->last_checked = $info->last_checked;
             $this->check();
+            /*if($this->last_checked == null || time() - $this->last_checked > 604800){
+            }*/
         }
 
         public function check(){
@@ -27,10 +29,27 @@
                     $zip->extractTo(ROOT . 'tmp');
                     $zip->close();
                     unlink(ROOT . 'latest.zip');
-                    rmdir(ROOT . 'Kernel');
+                    foreach($this->getFiles(ROOT . 'Kernel') as $file){
+                        unlink(ROOT . 'Kernel/' . $file);
+                    }
                     rename(ROOT . 'tmp/S-MVC-master/Kernel', ROOT . 'Kernel');
                 }
             }
+            $data['version'] = $this->version;
+            $data['last_checked'] = time();
+            file_put_contents(ROOT . 'Kernel/updater_info.json', json_encode($data));
+        }
+
+        private function getFiles($directory){
+            $files = array_diff(scandir($directory), array('.', '..'));
+            $allFiles = array();
+            foreach($files as $file){
+                if(is_dir($directory . '/' . $file)){
+                    $allFiles = array_merge($this->getFiles($directory . '/' . $file));
+                }
+                $allFiles[] = $file;
+            }
+            return $allFiles;
         }
 
     }
