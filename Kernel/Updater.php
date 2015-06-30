@@ -33,6 +33,9 @@
                         unlink(ROOT . 'Kernel/' . $file);
                     }
                     rename(ROOT . 'tmp/S-MVC-master/Kernel', ROOT . 'Kernel');
+                    foreach($this->getFiles(ROOT . 'tmp') as $file){
+                        unlink(ROOT . 'tmp/' . $file);
+                    }
                 }
             }
             $data['version'] = $this->version;
