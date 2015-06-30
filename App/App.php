@@ -8,6 +8,7 @@
 	use \Kernel\Request;
 	use \Kernel\Router;
 	use \Kernel\Dispatcher;
+	use \Kernel\Updater;
 
 	class App extends Bootstrap{
 
@@ -19,6 +20,8 @@
 			$this->session();
 			$this->Request = new Request();
 			$this->Router = new Router($this->Request);
+			$this->Updater = new Updater();
+			die();
 		}
 
 		/**
