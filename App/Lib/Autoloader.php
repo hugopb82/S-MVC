@@ -14,6 +14,7 @@
 		 * @param  [string]  $class  name of the class to load
 		 */
 		public static function autoload($class){
+			$class = str_replace('\\', '/', $class);
 			if(file_exists(ROOT . 'App/Lib/' . $class . '.php')){
 				require_once(ROOT . 'App/Lib/' . $class . '.php');
 			}

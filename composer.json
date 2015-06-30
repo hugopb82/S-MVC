@@ -10,9 +10,9 @@
     ],
     "autoload": {
         "psr-4": {
+            "" : "App/Lib/",
             "Kernel\\": "Kernel/",
-            "App\\": "App/",
-            "App\\Lib\\" : "App/Lib/"
+            "App\\": "App/"
         },
         "psr-0": {
             "Config": "Kernel/"
